@@ -112,4 +112,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Reference_number" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="27105c39-ae98-429b-bf97-53f10fe7c995" ChangeDateTime="01/09/2021 13:56:53">
+    <Property Name="ElementName" Value="[dbo].[GL_corpo_buyers_list].[bank_account_number]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GL_corpo_buyers_list]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Bank_account_number" />
+  </Operation>
 </Operations>

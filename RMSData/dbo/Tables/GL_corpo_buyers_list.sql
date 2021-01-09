@@ -11,7 +11,7 @@
     [Fax] VARCHAR(20) NULL, 
     [Website] VARCHAR(40) NULL, 
     [Contact_person] VARCHAR(50) NULL, 
-    [bank_account_number] VARCHAR(50) NULL, 
+    [Bank_account_number] VARCHAR(50) NULL, 
     [TIN] VARCHAR(50) NOT NULL, 
     [UCID] VARCHAR(50) NOT NULL, 
     [Taxpayer] BIT NOT NULL
