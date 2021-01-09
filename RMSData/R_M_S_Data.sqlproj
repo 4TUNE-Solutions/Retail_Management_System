@@ -64,5 +64,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\RMSData.publish.xml" />
+    <None Include="dbo\Tables\placeholder.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\GL_access_level_accounts.sql" />
+    <Build Include="dbo\Tables\GL_corpo_buyers_list.sql" />
+    <Build Include="dbo\Tables\GL_inventory_list.sql" />
+    <Build Include="dbo\Tables\GL_retail_costs.sql" />
+    <Build Include="dbo\Tables\GL_retail_costs_types.sql" />
+    <Build Include="dbo\Tables\GL_working_hours.sql" />
+    <Build Include="dbo\Tables\INV_suppliers_list.sql" />
+    <Build Include="dbo\Tables\RT_corpo_fiscal_bill.sql" />
+    <Build Include="dbo\Tables\RT_corpo_sell_invoice.sql" />
+    <Build Include="dbo\Tables\RT_fiscal_bills.sql" />
+    <Build Include="dbo\Tables\RT_invoice_sold_items.sql" />
+    <Build Include="dbo\Tables\RT_order_request.sql" />
+    <Build Include="dbo\Tables\RT_order_request_items.sql" />
+    <Build Include="dbo\Tables\RT_sold_goods.sql" />
+    <Build Include="dbo\Tables\RT_state.sql" />
   </ItemGroup>
 </Project>
