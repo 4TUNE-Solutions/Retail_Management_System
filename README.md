@@ -19,6 +19,9 @@ e.g. - `john_new_feature_API_sales_tax_endpoint`. Use `_` delimiter.
 ```
 Summary:
 <issue-ID> <commit-type> <verb in imperative> <rest of message (max 80 char)>
+     ^
+     |
+include if applicable
 
 Description:
 <Free text, describe more if necessary> (optional, about 72 char)
