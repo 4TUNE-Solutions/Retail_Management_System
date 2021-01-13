@@ -82,5 +82,10 @@
     <Build Include="dbo\Tables\RT_order_request_items.sql" />
     <Build Include="dbo\Tables\RT_sold_goods.sql" />
     <Build Include="dbo\Tables\RT_state.sql" />
+    <Build Include="dbo\Tables\INV_state.sql" />
+    <Build Include="dbo\Tables\INV_procurement.sql" />
+    <Build Include="dbo\Tables\INV_procurement_items.sql" />
+    <Build Include="dbo\Tables\INV_delivery.sql" />
+    <Build Include="dbo\Tables\INV_delivery_items.sql" />
   </ItemGroup>
 </Project>
