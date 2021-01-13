@@ -63,8 +63,8 @@
     <Folder Include="PublishLocations" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishLocations\RMSData.publish.xml" />
     <None Include="dbo\Tables\placeholder.txt" />
+    <None Include="PublishLocations\R_M_S_Data.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\GL_access_level_accounts.sql" />
