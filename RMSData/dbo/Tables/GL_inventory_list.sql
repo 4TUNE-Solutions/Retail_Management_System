@@ -4,8 +4,8 @@
     [Name] VARCHAR(20) NOT NULL, 
     [Adress] VARCHAR(40) NULL, 
     [City] VARCHAR(20) NULL, 
-    [Postal_code] VARCHAR(15) NULL, 
+    [PostalCode] VARCHAR(15) NULL, 
     [Email] VARCHAR(50) NULL, 
     [Mobile] VARCHAR(15) NULL, 
-    [Operating] BIT NOT NULL
+    [IsOperating] BIT NOT NULL
 )
