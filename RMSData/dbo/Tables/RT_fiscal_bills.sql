@@ -10,7 +10,7 @@
     [FinalSum] FLOAT NOT NULL, 
     [MoneyGiven] FLOAT NOT NULL, 
     [CashBack] FLOAT NOT NULL, 
-    [DateTimeIssues] DATETIME NOT NULL, 
+    [DateTimeIssues] DATETIME2 NOT NULL, 
     [TAXAmount] FLOAT NOT NULL, 
     [DiscountAmount] FLOAT NULL
 )
