@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using R_M_S_API.Library.DataAccess;
+using R_M_S_API.Library.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,9 +16,11 @@ namespace R_M_S_API.Controllers
     {
         // GET: api/<ArticlesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<ArticleModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            var data = new ArticleData();
+
+            return data.GetProducts();
         }
 
         // GET api/<ArticlesController>/5
