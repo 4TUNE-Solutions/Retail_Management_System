@@ -8,7 +8,7 @@
     [Article_name] VARCHAR(50) NOT NULL, 
     [Tax_id] INT NOT NULL, 
     [Description] TEXT NULL, 
-    [Article_note] VARCHAR(50) NULL, 
+    [Article_note] TEXT NULL, 
     [Exp_date] DATE NULL, 
     [Supplier_id] INT NULL, 
     [Service] BIT NOT NULL, 
