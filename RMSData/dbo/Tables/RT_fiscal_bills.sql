@@ -1,16 +1,16 @@
 ﻿CREATE TABLE [dbo].[RT_fiscal_bills]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Worker_id] INT NULL, 
-    [Shop_id] INT NOT NULL, 
-    [Buyer_id] INT NULL, 
-    [Reference_number] INT NOT NULL, 
-    [Sum_cash] FLOAT NULL, 
-    [Sum_card] FLOAT NULL, 
-    [Final_sum] FLOAT NOT NULL, 
-    [Money_given] FLOAT NOT NULL, 
-    [Cash_back] FLOAT NOT NULL, 
-    [Date_time_issues] DATETIME2 NOT NULL, 
-    [TAX_amount] FLOAT NOT NULL, 
-    [Discount_amount] NCHAR(10) NULL
+    [WorkerId] INT NULL, 
+    [ShopId] INT NOT NULL, 
+    [BuyerId] INT NULL, 
+    [ReferenceNumber] INT NOT NULL, 
+    [SumCash] FLOAT NULL, 
+    [SumCard] FLOAT NULL, 
+    [FinalSum] FLOAT NOT NULL, 
+    [MoneyGiven] FLOAT NOT NULL, 
+    [CashBack] FLOAT NOT NULL, 
+    [DateTimeIssues] DATETIME NOT NULL, 
+    [TAXAmount] FLOAT NOT NULL, 
+    [DiscountAmount] FLOAT NULL
 )
