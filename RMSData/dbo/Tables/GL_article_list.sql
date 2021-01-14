@@ -9,7 +9,7 @@
     [Tax_id] INT NOT NULL, 
     [Description] VARCHAR(50) NULL, 
     [Article_note] VARCHAR(50) NULL, 
-    [Exp_date] DATETIME2 NULL, 
+    [Exp_date] DATE NULL, 
     [Supplier_id] INT NULL, 
     [Service] BIT NOT NULL, 
     [Discount] INT NULL,
