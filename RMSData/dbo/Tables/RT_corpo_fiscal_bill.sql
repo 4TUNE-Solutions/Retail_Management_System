@@ -4,5 +4,5 @@
     [CorpoId] INT NOT NULL, 
     [ShopId] INT NOT NULL, 
     [FiscallBillId] INT NOT NULL, 
-    [DateTimeIssued] DATETIME NOT NULL
+    [DateTimeIssued] DATETIME2 NOT NULL
 )

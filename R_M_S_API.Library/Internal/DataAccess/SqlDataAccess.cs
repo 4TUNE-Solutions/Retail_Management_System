@@ -21,7 +21,7 @@ namespace R_M_S_API.Library.Internal.DataAccess
             configurationBuilder.AddJsonFile(path, false);
 
             var root = configurationBuilder.Build();
-            _connectionString = root.GetSection("ConnectionString").GetSection(name).Value;
+            _connectionString = root.GetSection("ConnectionStrings").GetSection(name).Value;
             var appSetting = root.GetSection("ApplicationSettings");
 
             return _connectionString;

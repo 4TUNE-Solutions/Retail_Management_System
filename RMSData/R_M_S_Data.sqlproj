@@ -63,7 +63,6 @@
     <Folder Include="PublishLocations" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dbo\Tables\placeholder.txt" />
     <None Include="PublishLocations\R_M_S_Data.publish.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -91,8 +90,7 @@
     <Build Include="dbo\Tables\GL_article_group.sql" />
     <Build Include="dbo\Tables\GL_article_sub_group.sql" />
     <Build Include="dbo\Tables\GL_article_grouping_connection.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="R_M_S_Data.refactorlog" />
+    <Build Include="dbo\Stored Procedures\spArticle_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spArticle_GetById.sql" />
   </ItemGroup>
 </Project>
