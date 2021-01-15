@@ -25,9 +25,11 @@ namespace R_M_S_API.Controllers
 
         // GET api/<ArticlesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ArticleModel Get(int id)
         {
-            return "value";
+            var data = new ArticleData();
+
+            return data.GetProductById(id);
         }
 
         // POST api/<ArticlesController>
