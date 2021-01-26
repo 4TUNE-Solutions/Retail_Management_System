@@ -39,6 +39,17 @@ namespace R_M_S_API.Library.Internal.DataAccess
                 return rows;
             }
         }
+
+        public void DeleteData<U>(string storedProcedure, U parameters, string connectionStringName)
+        {
+
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
 
