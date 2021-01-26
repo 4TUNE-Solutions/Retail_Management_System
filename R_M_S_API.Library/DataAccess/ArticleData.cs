@@ -35,13 +35,7 @@ namespace R_M_S_API.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            string connectionString = sql.GetConnectionString("Default");
-
-            using (IDbConnection connection = new SqlConnection(connectionString))
-            {
-                var sqlStatement = "DELETE GL_article_list WHERE Id = @Id";
-                connection.Execute(sqlStatement, new {Id = articleId });
-            }
+            sql.DeleteData<dynamic>("dbo.spArticle_Delete", new { Id = articleId }, "Default");
         }
     }
 }
