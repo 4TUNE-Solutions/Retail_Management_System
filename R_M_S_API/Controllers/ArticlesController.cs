@@ -48,6 +48,9 @@ namespace R_M_S_API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var data = new ArticleData();
+
+            data.DeleteProductById(id);
         }
     }
 }
