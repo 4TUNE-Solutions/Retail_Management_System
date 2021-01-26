@@ -90,7 +90,4 @@
     <Build Include="dbo\Stored Procedures\spArticle_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spArticle_GetById.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="PublishLocations\R_M_S_Data.publish.xml" />
-  </ItemGroup>
 </Project>
