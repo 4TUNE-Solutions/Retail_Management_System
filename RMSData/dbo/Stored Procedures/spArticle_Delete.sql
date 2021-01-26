@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spArticle _Delete]
+﻿CREATE PROCEDURE [dbo].[spArticle_Delete]
 	@Id int
 AS
 BEGIN
