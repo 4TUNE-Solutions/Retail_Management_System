@@ -8,7 +8,7 @@
 `main` is production branch, `development` is general probe branch, feel free to create appropriate branches for pull requests
 
 ## Branch naming (IMPORTANT)
-`<author>_<branch-type>_<branch-name>`, where branch-type is either feature, enchancement, bug (refer to issue label). branch name - refer to issue name, or feature request
+`<author>_<branch-type>_<branch-name>`, where branch-type is either feature, enhancement, bug (refer to issue label). branch name - refer to issue name, or feature request
 
 e.g. - `john_new_feature_API_sales_tax_endpoint`. Use `_` delimiter.
 
