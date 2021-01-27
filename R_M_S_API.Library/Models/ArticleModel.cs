@@ -17,7 +17,7 @@ namespace R_M_S_API.Library.Models
         public string ArticleNote { get; set; }
         public DateTime ExpDate { get; set; }
         public int SupplierId { get; set; }
-        public bool Service { get; set; }
+        public bool IsService { get; set; }
         public int Discount { get; set; }
     }
 }
