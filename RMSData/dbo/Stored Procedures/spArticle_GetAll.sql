@@ -5,5 +5,5 @@ BEGIN
 
 	SELECT *
 	FROM dbo.GL_article_list
-	ORDER BY Article_name;
+	ORDER BY ArticleName;
 END
