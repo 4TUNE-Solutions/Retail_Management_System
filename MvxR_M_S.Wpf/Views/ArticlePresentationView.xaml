@@ -13,11 +13,13 @@
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
@@ -31,5 +33,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Button Grid.Column="3" Grid.Row="2" Content="Input new articles" Command="{Binding NavigateCommand}"></Button>
     </Grid>
 </views:MvxWpfView>
