@@ -27,6 +27,16 @@ namespace R_M_S_API.Library.Internal.DataAccess
             return _connectionString;
         }
 
+        public void SetData<U>(string storedProcedure, U parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);

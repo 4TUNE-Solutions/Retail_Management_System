@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            return data.GetProducts();
+            return data.GetArticles();
         }
 
         // GET api/<ArticlesController>/5
@@ -29,13 +30,30 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            return data.GetProductById(id);
+            return data.GetArticleById(id);
         }
 
         // POST api/<ArticlesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(string Barcode, string Barcode2, string Barcode3, string Barcode4,
+            string ArticleName, int TaxId, string Description, string ArticleNote, DateTime ExpDate,
+            int SupplierId, bool IsService, int Discount)
         {
+            var data = new ArticleData();
+
+            try
+            {
+                data.SetArticle(Barcode, Barcode2, Barcode3, Barcode4,
+                    ArticleName, TaxId, Description, ArticleNote, ExpDate,
+                    SupplierId, IsService, Discount);
+            }
+            catch (SqlTypeException)
+            {
+                data.SetArticle(Barcode, Barcode2, Barcode3, Barcode4,
+                    ArticleName, TaxId, Description, ArticleNote, DateTime.Now,
+                    SupplierId, IsService, Discount);
+            }
+            
         }
 
         // PUT api/<ArticlesController>/5
@@ -50,7 +68,7 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            data.DeleteProductById(id);
+            data.DeleteArticleById(id);
         }
     }
 }

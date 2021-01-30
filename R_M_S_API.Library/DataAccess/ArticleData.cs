@@ -13,7 +13,29 @@ namespace R_M_S_API.Library.DataAccess
 {
     public class ArticleData
     {
-        public List<ArticleModel> GetProducts()
+        public void SetArticle(string Barcode, string Barcode2, string Barcode3, string Barcode4,
+            string ArticleName, int TaxId, string Description, string ArticleNote, DateTime ExpDate,
+            int SupplierId, bool IsService, int Discount)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.DeleteData<dynamic>("dbo.spArticle_New", new {
+                barcode = Barcode,
+                barcode2 = Barcode2,
+                barcode3 = Barcode3,
+                barcode4 = Barcode4,
+                articleName = ArticleName,
+                taxId = TaxId,
+                description = Description,
+                articleNote = ArticleNote,
+                expDate = ExpDate,
+                supplierId = SupplierId,
+                isService = IsService,
+                discount = Discount
+            }, "Default");
+        }
+
+        public List<ArticleModel> GetArticles()
         {
             SqlDataAccess sql = new SqlDataAccess();
 
@@ -22,7 +44,7 @@ namespace R_M_S_API.Library.DataAccess
             return output;
         }
 
-        public ArticleModel GetProductById(int articleId)
+        public ArticleModel GetArticleById(int articleId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
@@ -31,7 +53,7 @@ namespace R_M_S_API.Library.DataAccess
             return output;
         }
 
-        public void DeleteProductById(int articleId)
+        public void DeleteArticleById(int articleId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
