@@ -13,26 +13,11 @@ namespace R_M_S_API.Library.DataAccess
 {
     public class ArticleData
     {
-        public void SetArticle(string Barcode, string Barcode2, string Barcode3, string Barcode4,
-            string ArticleName, int TaxId, string Description, string ArticleNote, DateTime ExpDate,
-            int SupplierId, bool IsService, int Discount)
+        public void SetArticle<T>(T am)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.DeleteData<dynamic>("dbo.spArticle_New", new {
-                barcode = Barcode,
-                barcode2 = Barcode2,
-                barcode3 = Barcode3,
-                barcode4 = Barcode4,
-                articleName = ArticleName,
-                taxId = TaxId,
-                description = Description,
-                articleNote = ArticleNote,
-                expDate = ExpDate,
-                supplierId = SupplierId,
-                isService = IsService,
-                discount = Discount
-            }, "Default");
+            sql.SetData<T>("dbo.spArticle_New", am, "Default");
         }
 
         public List<ArticleModel> GetArticles()
