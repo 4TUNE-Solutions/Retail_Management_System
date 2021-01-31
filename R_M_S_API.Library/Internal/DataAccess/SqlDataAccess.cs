@@ -27,7 +27,7 @@ namespace R_M_S_API.Library.Internal.DataAccess
             return _connectionString;
         }
 
-        public void SetData<U>(string storedProcedure, U parameters, string connectionStringName)
+        public void SetData<T>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);
 
