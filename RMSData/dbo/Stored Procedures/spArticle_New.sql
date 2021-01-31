@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spArticle_New]
+	@id int,
 	@barcode varchar(50),
 	@barcode2 varchar(50) = NULL ,
 	@barcode3 varchar(50) = NULL,
