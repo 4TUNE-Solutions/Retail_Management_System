@@ -43,6 +43,7 @@ namespace MvxR_M_S.Core.API
             {
                 if (response.IsSuccessStatusCode)
                 {
+                    
                     //TODO LOGGING
                 }
                 else
