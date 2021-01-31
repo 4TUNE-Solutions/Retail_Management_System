@@ -7,25 +7,65 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvxR_M_S.Wpf.Views"
-             mc:Ignorable="d" Background="Black"
+             mc:Ignorable="d" Background="Wheat"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
 
         <Button Grid.Column="1" Grid.Row="1" Content="Go back" Command="{Binding GoBackCommand}"></Button>
+
+        <!-- labels -->
+        <TextBlock Grid.Column="2" Grid.Row="2" Text="Article Name" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="3" Text="Barcode" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="Barcode 2" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="5" Text="Barcode 3" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="6" Text="Barcode 4" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="7" Text="Tax ID" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="2" Text="Description" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="3" Text="Article Note" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="4" Text="Expiring Date" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="5" Text="Supplier ID" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="6" Text="Is Service?" Margin="10"></TextBlock>
+        <TextBlock Grid.Column="4" Grid.Row="7" Text="Discount" Margin="10"></TextBlock>
+
+        <!-- input fields -->
+        <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding ArticleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="3" Text="{Binding Barcode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="4" Text="{Binding Barcode2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="5" Text="{Binding Barcode3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="6" Text="{Binding Barcode4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="7" Text="{Binding TaxId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="2" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="3" Text="{Binding ArticleNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="4" Text="{Binding ExpDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="5" Text="{Binding SupplierId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="6" Text="{Binding IsService, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="7" Text="{Binding Discount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <!-- submit to API -->
+        <Button Grid.Column="6" Grid.Row="8" Content="Submit article" Margin="20" Command="{Binding SubmitArticleCommand}"></Button>
+
     </Grid>
 </views:MvxWpfView>
