@@ -42,9 +42,6 @@ namespace MvxR_M_S.Core.ViewModels
         {
             _navigationService = navigationService;
         }
-        
-        //Command properties
-        public IMvxCommand AddArticleCommand { get; private set; }
 
         //Article properties
         public string Barcode
