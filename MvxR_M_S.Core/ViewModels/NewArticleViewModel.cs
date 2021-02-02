@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation.Results;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using MvxR_M_S.Core.API;
 using MvxR_M_S.Core.Models;
+using MvxR_M_S.Wpf.Validators;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace MvxR_M_S.Core.ViewModels
 {
@@ -71,21 +75,13 @@ namespace MvxR_M_S.Core.ViewModels
         public string ArticleName
         {
             get => _articleName;
-            set
-            {
-                SetProperty(ref _articleName, value);
-                RaisePropertyChanged(() => CanAddArticle);
-            } 
+            set => SetProperty(ref _articleName, value);
         }
 
         public int TaxId
         {
             get => _taxId;
-            set
-            {
-                SetProperty(ref _taxId, value);
-                RaisePropertyChanged(() => CanAddArticle);
-            } 
+            set => SetProperty(ref _taxId, value);
         }
 
         public string Description
@@ -124,12 +120,19 @@ namespace MvxR_M_S.Core.ViewModels
             set => SetProperty(ref _discount, value);
         }
 
-        public bool CanAddArticle => ArticleName?.Length > 0 && Convert.ToString(TaxId)?.Length > 0;
+        private BindingList<string> _errors = new BindingList<string>();
+
+        public BindingList<string> Errors
+        {
+            get => _errors;
+            set => SetProperty(ref _errors, value);
+        }
 
         private async Task SendData()
         {
             var ae = new ArticleEndpoint(new APIHelper());
-            await ae.Send<ArticleModel>(new ArticleModel
+
+            ArticleModel article = new ArticleModel
             {
                 Barcode = Barcode,
                 Barcode2 = Barcode2,
@@ -143,21 +146,40 @@ namespace MvxR_M_S.Core.ViewModels
                 SupplierId = SupplierId,
                 IsService = IsService,
                 Discount = Discount
-            });
+            };
 
-            //clearing fields after submit
-            Barcode = String.Empty;
-            Barcode2 = String.Empty;
-            Barcode3 = String.Empty;
-            Barcode4 = String.Empty;
-            ArticleName = String.Empty;
-            TaxId = 0;
-            Description = String.Empty;
-            ArticleNote = String.Empty;
-            ExpDate = DateTime.Now;
-            SupplierId = 0;
-            IsService = false;
-            Discount = 0;
+            //validating
+            ArticleValidator validator = new ArticleValidator();
+
+            ValidationResult result = validator.Validate(article);
+
+            if (result.IsValid == false)
+            {
+                _errors.Clear();
+                foreach (ValidationFailure failure in result.Errors)
+                {
+                    _errors.Add($"{failure.ErrorMessage}");
+                }
+            }
+            else
+            {
+                _errors.Clear();
+                await ae.Send<ArticleModel>(article);
+
+                //clearing fields after submit
+                Barcode = String.Empty;
+                Barcode2 = String.Empty;
+                Barcode3 = String.Empty;
+                Barcode4 = String.Empty;
+                ArticleName = String.Empty;
+                TaxId = 0;
+                Description = String.Empty;
+                ArticleNote = String.Empty;
+                ExpDate = DateTime.Now;
+                SupplierId = 0;
+                IsService = false;
+                Discount = 0;
+            }
         }
 
         private async Task GoBack()
