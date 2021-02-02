@@ -71,13 +71,21 @@ namespace MvxR_M_S.Core.ViewModels
         public string ArticleName
         {
             get => _articleName;
-            set => SetProperty(ref _articleName, value);
+            set
+            {
+                SetProperty(ref _articleName, value);
+                RaisePropertyChanged(() => CanAddArticle);
+            } 
         }
 
         public int TaxId
         {
             get => _taxId;
-            set => SetProperty(ref _taxId, value);
+            set
+            {
+                SetProperty(ref _taxId, value);
+                RaisePropertyChanged(() => CanAddArticle);
+            } 
         }
 
         public string Description
@@ -116,6 +124,8 @@ namespace MvxR_M_S.Core.ViewModels
             set => SetProperty(ref _discount, value);
         }
 
+        public bool CanAddArticle => ArticleName?.Length > 0 && Convert.ToString(TaxId)?.Length > 0;
+
         private async Task SendData()
         {
             var ae = new ArticleEndpoint(new APIHelper());
@@ -134,6 +144,20 @@ namespace MvxR_M_S.Core.ViewModels
                 IsService = IsService,
                 Discount = Discount
             });
+
+            //clearing fields after submit
+            Barcode = String.Empty;
+            Barcode2 = String.Empty;
+            Barcode3 = String.Empty;
+            Barcode4 = String.Empty;
+            ArticleName = String.Empty;
+            TaxId = 0;
+            Description = String.Empty;
+            ArticleNote = String.Empty;
+            ExpDate = DateTime.Now;
+            SupplierId = 0;
+            IsService = false;
+            Discount = 0;
         }
 
         private async Task GoBack()
