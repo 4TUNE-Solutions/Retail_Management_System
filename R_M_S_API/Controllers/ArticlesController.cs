@@ -35,23 +35,18 @@ namespace R_M_S_API.Controllers
 
         // POST api/<ArticlesController>
         [HttpPost]
-        public void Post(string Barcode, string Barcode2, string Barcode3, string Barcode4,
-            string ArticleName, int TaxId, string Description, string ArticleNote, DateTime ExpDate,
-            int SupplierId, bool IsService, int Discount)
+        public void Post(ArticleModel article)
         {
             var data = new ArticleData();
 
             try
             {
-                data.SetArticle(Barcode, Barcode2, Barcode3, Barcode4,
-                    ArticleName, TaxId, Description, ArticleNote, ExpDate,
-                    SupplierId, IsService, Discount);
+                data.SetArticle(article);
             }
             catch (SqlTypeException)
             {
-                data.SetArticle(Barcode, Barcode2, Barcode3, Barcode4,
-                    ArticleName, TaxId, Description, ArticleNote, DateTime.Now,
-                    SupplierId, IsService, Discount);
+                article.ExpDate = DateTime.Now;
+                data.SetArticle(article);
             }
             
         }

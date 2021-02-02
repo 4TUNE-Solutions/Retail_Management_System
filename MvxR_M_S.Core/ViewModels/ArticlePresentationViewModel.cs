@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Threading.Tasks;
+using MvvmCross.Commands;
+using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using MvxR_M_S.Core.API;
 using MvxR_M_S.Core.Models;
@@ -8,9 +10,15 @@ namespace MvxR_M_S.Core.ViewModels
 {
     public class ArticlePresentationViewModel : MvxViewModel
     {
-        public ArticlePresentationViewModel()
+        private readonly IMvxNavigationService _navigationService;
+
+        public ArticlePresentationViewModel(IMvxNavigationService navigationService)
         {
+            _navigationService = navigationService;
+            NavigateCommand = new MvxAsyncCommand(() => _navigationService.Navigate<NewArticleViewModel>());
         }
+
+        public IMvxAsyncCommand NavigateCommand { get; private set; }
 
         public override async void ViewAppeared()
         {
