@@ -15,7 +15,7 @@ namespace MvxR_M_S.Core
         public override void Initialize()
         {
 
-            RegisterAppStart<ArticlePresentationViewModel>();
+            RegisterAppStart<MainPageViewModel>();
         }
     }
 }
