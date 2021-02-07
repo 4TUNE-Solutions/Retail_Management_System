@@ -13,7 +13,14 @@ namespace R_M_S_API.Library.DataAccess
 {
     public class ArticleData
     {
-        public List<ArticleModel> GetProducts()
+        public void SetArticle<T>(T am)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.SetData<T>("dbo.spArticle_New", am, "Default");
+        }
+
+        public List<ArticleModel> GetArticles()
         {
             SqlDataAccess sql = new SqlDataAccess();
 
@@ -22,7 +29,7 @@ namespace R_M_S_API.Library.DataAccess
             return output;
         }
 
-        public ArticleModel GetProductById(int articleId)
+        public ArticleModel GetArticleById(int articleId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
@@ -31,7 +38,7 @@ namespace R_M_S_API.Library.DataAccess
             return output;
         }
 
-        public void DeleteProductById(int articleId)
+        public void DeleteArticleById(int articleId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 

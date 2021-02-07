@@ -5,8 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="MvvmCross" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\R_M_S_API.Library\R_M_S_API.Library.csproj" />
   </ItemGroup>
 
 </Project>

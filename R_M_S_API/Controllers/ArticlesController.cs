@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            return data.GetProducts();
+            return data.GetArticles();
         }
 
         // GET api/<ArticlesController>/5
@@ -29,13 +30,25 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            return data.GetProductById(id);
+            return data.GetArticleById(id);
         }
 
         // POST api/<ArticlesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(ArticleModel article)
         {
+            var data = new ArticleData();
+
+            try
+            {
+                data.SetArticle(article);
+            }
+            catch (SqlTypeException)
+            {
+                article.ExpDate = DateTime.Now;
+                data.SetArticle(article);
+            }
+            
         }
 
         // PUT api/<ArticlesController>/5
@@ -50,7 +63,7 @@ namespace R_M_S_API.Controllers
         {
             var data = new ArticleData();
 
-            data.DeleteProductById(id);
+            data.DeleteArticleById(id);
         }
     }
 }
