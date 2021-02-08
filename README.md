@@ -42,10 +42,25 @@ or "Fixes bug".
 
 # RMSData
 
-*Keep in mind that some folders may be missing, because they are empty, and git does not show them. Also, there may be a placeholder file in order to show folder on gh.*
+*Keep in mind that some folders may be missing, because they are empty, and git does not show them. Also, there may be a placeholder file in order to show folder on github.*
 
 Database project.
 - dbo ('database owner'. Database schema.)
   - Tables
   - Views
   - Stored Procedures
+
+# R_M_S_API.Library
+
+*Class library for communicating with database.*
+
+
+API Class Library Project
+- Internal
+  - DataAccess 
+    - Methods for communicating with database
+- Data Access
+  - Calling methods from DataAccess
+- Models
+  - Data Object models for storing information about specific table
+
