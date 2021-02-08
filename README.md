@@ -94,3 +94,10 @@ WPF Class Library project
 - ViewModels
   - Classes responsible for all business code and logic
 
+# NuGet packages used:
+- MvvmCross
+- FluentValidation
+- Newtonsoft.Json
+- Swashbuckle
+- Dapper
+
