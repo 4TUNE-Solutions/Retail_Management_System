@@ -42,10 +42,62 @@ or "Fixes bug".
 
 # RMSData
 
-*Keep in mind that some folders may be missing, because they are empty, and git does not show them. Also, there may be a placeholder file in order to show folder on gh.*
+*Keep in mind that some folders may be missing, because they are empty, and git does not show them. Also, there may be a placeholder file in order to show folder on github.*
 
 Database project.
 - dbo ('database owner'. Database schema.)
   - Tables
   - Views
   - Stored Procedures
+
+# R_M_S_API.Library
+
+*Class library for communicating with database.*
+
+
+API Class Library Project
+- Internal
+  - DataAccess 
+    - Methods for communicating with database
+- Data Access
+  - Calling methods from DataAccess
+- Models
+  - Data Objects for storing information about specific table
+
+# R_M_S_API
+
+*Web API for connecting database with system*
+
+ASP.NET WebAPI Project
+- Controllers
+  - Different groups specialized for certain logic within database and system communication
+
+# MvxR_M_S.Wpf
+
+*WPF UI containing only views, or UI part of system*
+
+WPF Project
+- Views
+  - XAML designed UI for Windows7 +
+
+# MvxR_M_S.Core
+
+*Core logic of application. Applicable over different UIs. Uses MVVM pattern*
+
+WPF Class Library project
+- API
+  - Classes for talking to API
+- Models
+  - Data Objects used for storing data within database and system communication
+- Validators
+  - Data validation through system logic
+- ViewModels
+  - Classes responsible for all business code and logic
+
+# NuGet packages used:
+- MvvmCross
+- FluentValidation
+- Newtonsoft.Json
+- Swashbuckle
+- Dapper
+
