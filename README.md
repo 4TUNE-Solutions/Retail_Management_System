@@ -72,3 +72,11 @@ ASP.NET WebAPI Project
 - Controllers
   - Different groups specialized for certain logic within database and system communication
 
+# MvxR_M_S.Wpf
+
+*WPF UI containing only views, or UI part of system*
+
+WPF Project
+- Views
+  - XAML designed UI for Windows7 +
+
