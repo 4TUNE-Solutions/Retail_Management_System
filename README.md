@@ -62,7 +62,7 @@ API Class Library Project
 - Data Access
   - Calling methods from DataAccess
 - Models
-  - Data Object models for storing information about specific table
+  - Data Objects for storing information about specific table
 
 # R_M_S_API
 
@@ -79,4 +79,18 @@ ASP.NET WebAPI Project
 WPF Project
 - Views
   - XAML designed UI for Windows7 +
+
+# MvxR_M_S.Core
+
+*Core logic of application. Applicable over different UIs. Uses MVVM pattern*
+
+WPF Class Library project
+- API
+  - Classes for talking to API
+- Models
+  - Data Objects used for storing data within database and system communication
+- Validators
+  - Data validation through system logic
+- ViewModels
+  - Classes responsible for all business code and logic
 
