@@ -64,3 +64,11 @@ API Class Library Project
 - Models
   - Data Object models for storing information about specific table
 
+# R_M_S_API
+
+*Web API for connecting database with system*
+
+ASP.NET WebAPI Project
+- Controllers
+  - Different groups specialized for certain logic within database and system communication
+
