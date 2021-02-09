@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmCross.Platforms.Wpf" Version="7.1.2" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.42" />
   </ItemGroup>
 
   <ItemGroup>
