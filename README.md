@@ -96,6 +96,7 @@ WPF Class Library project
 
 # NuGet packages used:
 - MvvmCross
+- Syncfusion
 - FluentValidation
 - Newtonsoft.Json
 - Swashbuckle
