@@ -33,7 +33,7 @@
         <Button Grid.Column="2" Grid.Row="2" Content="Show Articles" Command="{Binding ShowArticlesNavigationCommand}" Margin="10" />
         <Button Grid.Column="2" Grid.Row="3" Content="Input New Article" Command="{Binding InputArticlesNavigationCommand}" Margin="10" />
         <Button Grid.Column="2" Grid.Row="4" Content="Change Article" IsEnabled="False" Margin="10" />
-        <Button Grid.Column="2" Grid.Row="5" Content="Delete Article" IsEnabled="False" Margin="10" />
+        <Button Grid.Column="2" Grid.Row="5" Content="Delete Article" Command="{Binding DeleteArticlesNavigationCommand}" Margin="10" />
 
     </Grid>
 </views:MvxWpfView>
