@@ -26,7 +26,7 @@
         <!-- go back button -->
         <Button Grid.Column="1" Grid.Row="1" Content="Go back" Command="{Binding GoBackCommand}" FontSize="15" Margin="7" />
 
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" Text="Article list" FontSize="30" />
+        <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Text="Article list" FontSize="30" />
 
         <syncfusion:SfDataGrid Grid.Column="2" Grid.Row="2" Margin="15" ItemsSource="{Binding Articles}" AllowFiltering="True" />
     </Grid>
