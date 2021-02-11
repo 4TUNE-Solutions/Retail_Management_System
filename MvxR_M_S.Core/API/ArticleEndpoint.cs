@@ -52,5 +52,20 @@ namespace MvxR_M_S.Core.API
                 }
             }
         }
+
+        public async Task Delete(int articleId)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync($"/api/Articles/{articleId}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    //TODO LOGGING
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }
