@@ -15,10 +15,8 @@ namespace MvxR_M_S.Core.ViewModels
         public ArticlePresentationViewModel(IMvxNavigationService navigationService)
         {
             _navigationService = navigationService;
-            NavigateCommand = new MvxAsyncCommand(() => _navigationService.Navigate<NewArticleViewModel>());
         }
-
-        public IMvxAsyncCommand NavigateCommand { get; private set; }
+        
         public IMvxAsyncCommand GoBackCommand => new MvxAsyncCommand(GoBack);
 
         public override async void ViewAppeared()
