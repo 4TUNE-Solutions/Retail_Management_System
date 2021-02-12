@@ -41,20 +41,23 @@ namespace R_M_S_API.Controllers
 
             try
             {
-                data.SetArticle(article);
+                data.SetArticle<ArticleModel>(article);
             }
             catch (SqlTypeException)
             {
                 article.ExpDate = DateTime.Now;
-                data.SetArticle(article);
+                data.SetArticle<ArticleModel>(article);
             }
             
         }
 
         // PUT api/<ArticlesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, ArticleModel am)
         {
+            var data = new ArticleData();
+
+            data.ChangeArticleById<ArticleModel>(am);
         }
 
         // DELETE api/<ArticlesController>/5
