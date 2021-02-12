@@ -44,5 +44,12 @@ namespace R_M_S_API.Library.DataAccess
 
             sql.DeleteData<dynamic>("dbo.spArticle_Delete", new { Id = articleId }, "Default");
         }
+
+        public void ChangeArticleById<T>(T am)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.SetData<T>("dbo.spArticle_Change", am, "Default");
+        }
     }
 }
