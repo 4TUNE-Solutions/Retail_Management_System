@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MvvmCross.Platforms.Wpf.Views;
 
 namespace MvxR_M_S.Wpf.Views
 {
     /// <summary>
     /// Interaction logic for ChangeArticleView.xaml
     /// </summary>
-    public partial class ChangeArticleView : UserControl
+    public partial class ChangeArticleView : MvxWpfView
     {
         public ChangeArticleView()
         {
