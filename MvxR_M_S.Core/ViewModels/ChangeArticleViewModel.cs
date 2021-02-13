@@ -16,6 +16,7 @@ namespace MvxR_M_S.Core.ViewModels
     {
         private readonly IMvxNavigationService _navigationService;
         private BindingList<ArticleModel> _articles;
+        private ArticleModel _selectedArticle;
 
         public ChangeArticleViewModel(IMvxNavigationService navigationService)
         {
@@ -23,6 +24,16 @@ namespace MvxR_M_S.Core.ViewModels
         }
 
         public IMvxAsyncCommand GoBackCommand => new MvxAsyncCommand(GoBack);
+        public IMvxAsyncCommand SubmitNewArticle => new MvxAsyncCommand(ChangeArticle);
+
+        public ArticleModel SelectedArticle
+        {
+            get { return _selectedArticle; }
+            set
+            {
+                SetProperty(ref _selectedArticle, value);
+            }
+        }
 
         public BindingList<ArticleModel> Articles
         {
@@ -35,6 +46,31 @@ namespace MvxR_M_S.Core.ViewModels
                 SetProperty(ref _articles, value);
             }
         }
+        
+
+        public async Task ChangeArticle()
+        {
+
+            var ae = new ArticleEndpoint(new APIHelper());
+            await ae.Change<ArticleModel>(SelectedArticle.Id, SelectedArticle);
+
+            //clear fields
+            SelectedArticle.Barcode = "";
+            SelectedArticle.Barcode2 = "";
+            SelectedArticle.Barcode3 = "";
+            SelectedArticle.Barcode4 = "";
+            SelectedArticle.ArticleName = "";
+            SelectedArticle.ArticleNote = "";
+            SelectedArticle.Description = "";
+            SelectedArticle.TaxId = 0;
+            SelectedArticle.Discount = 0;
+            SelectedArticle.ExpDate = DateTime.Now;
+            SelectedArticle.SupplierId = 0;
+
+            await LoadArticles(new ArticleEndpoint(new APIHelper()));
+
+        }
+
         public override async void ViewAppeared()
         {
             base.ViewAppeared();
