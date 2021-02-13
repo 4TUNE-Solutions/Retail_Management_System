@@ -23,6 +23,8 @@ namespace MvxR_M_S.Core.ViewModels
                 new MvxAsyncCommand(() => _navigationService.Navigate<NewArticleViewModel>());
             DeleteArticlesNavigationCommand =
                 new MvxAsyncCommand(() => _navigationService.Navigate<DeleteArticleViewModel>());
+            ChangeArticlesNavigationCommand = 
+                new MvxAsyncCommand(() => _navigationService.Navigate<ChangeArticleViewModel>());
         }
 
         //command properties
@@ -33,6 +35,8 @@ namespace MvxR_M_S.Core.ViewModels
         public IMvxAsyncCommand InputArticlesNavigationCommand { get; private set; }
 
         public IMvxAsyncCommand DeleteArticlesNavigationCommand { get; private set; }
+
+        public IMvxAsyncCommand ChangeArticlesNavigationCommand { get; private set; }
 
         private async Task GoBack()
         {
