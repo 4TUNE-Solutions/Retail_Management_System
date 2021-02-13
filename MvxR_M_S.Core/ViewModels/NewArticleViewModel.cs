@@ -47,7 +47,8 @@ namespace MvxR_M_S.Core.ViewModels
             _navigationService = navigationService;
         }
 
-        //Article properties
+        #region article properties
+
         public string Barcode
         {
             get => _barcode;
@@ -119,6 +120,8 @@ namespace MvxR_M_S.Core.ViewModels
             get => _discount;
             set => SetProperty(ref _discount, value);
         }
+
+        #endregion
 
         private BindingList<string> _statusMessages = new BindingList<string>();
 
