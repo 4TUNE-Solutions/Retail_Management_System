@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MvvmCross.Platforms.Wpf.Views;
+using Syncfusion.UI.Xaml.Grid;
 
 namespace MvxR_M_S.Wpf.Views
 {
