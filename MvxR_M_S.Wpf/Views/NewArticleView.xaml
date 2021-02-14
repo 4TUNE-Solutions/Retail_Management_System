@@ -7,28 +7,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvxR_M_S.Wpf.Views"
-             mc:Ignorable="d" Background="Wheat"
-             d:DesignHeight="450" d:DesignWidth="800">
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             mc:Ignorable="d" Background="WhiteSmoke"
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -53,30 +54,28 @@
         <TextBlock Grid.Column="4" Grid.Row="7" Text="Discount" Margin="10"></TextBlock>
 
         <!-- input fields -->
-        <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding ArticleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="3" Text="{Binding Barcode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="4" Text="{Binding Barcode2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="5" Text="{Binding Barcode3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="6" Text="{Binding Barcode4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="7" Text="{Binding TaxId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="2" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150"></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="3" Text="{Binding ArticleNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="4" Text="{Binding ExpDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="5" Text="{Binding SupplierId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <ComboBox Grid.Column="5" Grid.Row="6" Text="{Binding IsService, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding ArticleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" />
+        <TextBox Grid.Column="3" Grid.Row="3" Text="{Binding Barcode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 10" />
+        <TextBox Grid.Column="3" Grid.Row="4" Text="{Binding Barcode2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 10" />
+        <TextBox Grid.Column="3" Grid.Row="5" Text="{Binding Barcode3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 10" />
+        <TextBox Grid.Column="3" Grid.Row="6" Text="{Binding Barcode4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 10" />
+        <syncfusion:IntegerTextBox Grid.Column="3" Grid.Row="7" Text="{Binding TaxId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Column="5" Grid.Row="2" Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" />
+        <TextBox Grid.Column="5" Grid.Row="3" Text="{Binding ArticleNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" />
+        <syncfusion:DateTimeEdit Grid.Column="5" Grid.Row="4" Text="{Binding ExpDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" />
+        <syncfusion:IntegerTextBox Grid.Column="5" Grid.Row="5" Text="{Binding SupplierId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <ComboBox Grid.Column="5" Grid.Row="6" Text="{Binding IsService, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" >
             <ComboBoxItem Content = "true"/>
             <ComboBoxItem Content = "false"/>
         </ComboBox>
-        <TextBox Grid.Column="5" Grid.Row="7" Text="{Binding Discount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <syncfusion:IntegerTextBox Grid.Column="5" Grid.Row="7" Text="{Binding Discount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <!-- submit to API -->
         <Button Grid.Column="6" Grid.Row="8" Content="Submit article" Margin="20" 
                 mvx:Bi.nd="Command SubmitArticleCommand"></Button>
 
-        <Label Content="Errors" Grid.Column="1" Grid.Row="9"></Label>
-        <ListBox x:Name="Errors" ItemsSource="{Binding Errors}" Grid.Column="1" Grid.Row="10"  Grid.ColumnSpan="4" MinHeight="100">
-            
-        </ListBox>
+        <TextBlock Text="Status:" Grid.Column="1" Grid.Row="9" Margin="0 0 0 5" />
+        <ListBox ItemsSource="{Binding StatusMessages}" Grid.Column="1" Grid.Row="10"  Grid.ColumnSpan="4" MinHeight="100" />
 
     </Grid>
 </views:MvxWpfView>

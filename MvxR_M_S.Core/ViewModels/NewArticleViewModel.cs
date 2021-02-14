@@ -47,7 +47,8 @@ namespace MvxR_M_S.Core.ViewModels
             _navigationService = navigationService;
         }
 
-        //Article properties
+        #region article properties
+
         public string Barcode
         {
             get => _barcode;
@@ -120,13 +121,11 @@ namespace MvxR_M_S.Core.ViewModels
             set => SetProperty(ref _discount, value);
         }
 
-        private BindingList<string> _errors = new BindingList<string>();
+        #endregion
 
-        public BindingList<string> Errors
-        {
-            get => _errors;
-            set => SetProperty(ref _errors, value);
-        }
+        private BindingList<string> _statusMessages = new BindingList<string>();
+
+        public BindingList<string> StatusMessages => _statusMessages;
 
         private async Task SendData()
         {
@@ -155,16 +154,18 @@ namespace MvxR_M_S.Core.ViewModels
 
             if (result.IsValid == false)
             {
-                _errors.Clear();
+                _statusMessages.Clear();
                 foreach (ValidationFailure failure in result.Errors)
                 {
-                    _errors.Add($"{failure.ErrorMessage}");
+                    _statusMessages.Add($"{failure.ErrorMessage}");
                 }
             }
             else
             {
-                _errors.Clear();
+                _statusMessages.Clear();
                 await ae.Send<ArticleModel>(article);
+
+                _statusMessages.Add("Success!");
 
                 //clearing fields after submit
                 Barcode = String.Empty;

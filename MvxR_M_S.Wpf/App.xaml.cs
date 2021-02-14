@@ -12,6 +12,7 @@ namespace MvxR_M_S.Wpf
         protected override void RegisterSetup()
         {
             this.RegisterSetupType<MvxWpfSetup<Core.App>>();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mzk2NjU3QDMxMzgyZTM0MmUzMFlSQUhnNjJJNi9rSlo2RmFVSlFRekZzeUpRNGFLTXBkZ2hjUGZZamlLK0E9");
         }
     }
 }
