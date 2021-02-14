@@ -17,6 +17,7 @@ namespace MvxR_M_S.Core.ViewModels
         private readonly IMvxNavigationService _navigationService;
         private BindingList<ArticleModel> _articles;
         private ArticleModel _selectedArticle;
+        private BindingList<string> _statusMessages = new BindingList<string>();
 
         public ChangeArticleViewModel(IMvxNavigationService navigationService)
         {
@@ -46,6 +47,8 @@ namespace MvxR_M_S.Core.ViewModels
                 SetProperty(ref _articles, value);
             }
         }
+
+        public BindingList<string> StatusMessages => _statusMessages;
         
 
         public async Task ChangeArticle()
@@ -53,6 +56,9 @@ namespace MvxR_M_S.Core.ViewModels
 
             var ae = new ArticleEndpoint(new APIHelper());
             await ae.Change<ArticleModel>(SelectedArticle.Id, SelectedArticle);
+
+            _statusMessages.Clear();
+            StatusMessages.Add("Success!");
 
             //clear fields
             SelectedArticle.Barcode = "";
