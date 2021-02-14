@@ -67,5 +67,21 @@ namespace MvxR_M_S.Core.API
                 }
             }
         }
+
+        public async Task Change<T>(int articleId, T article)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync($"/api/Articles/{articleId}", article))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    //TODO LOGGING
+                    Console.WriteLine("success!");
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }
