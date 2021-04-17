@@ -1,5 +1,7 @@
 # Retail_Management_System
 
+For info on how to start project -> [START.md](https://github.com/4TUNE-Solutions/Retail_Management_System/blob/main/START.md)
+
 - **For Database related things use  `DB_` prefix!**
 - **For Store Interface related things use `SI_` prefix!**
 - **For Inventory Interface related things use `INI_` prefix!**
