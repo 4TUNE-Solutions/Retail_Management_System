@@ -1,0 +1,4 @@
+- Open solution in Visual studio
+- Right click on solution -> Set startup projects -> Multiple startup projects
+- Set `R_M_S_API`, `R_M_S_Data` and `MvxR_M_S_Wpf` on `Start`
+- Click OK, and start the project
