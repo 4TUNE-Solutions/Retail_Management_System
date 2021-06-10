@@ -18,6 +18,7 @@ namespace MvxR_M_S.Core.ViewModels
         private BindingList<ArticleModel> _articles;
         private ArticleModel _selectedArticle;
         private BindingList<string> _statusMessages = new BindingList<string>();
+        private bool _articleSelected = false;
 
         public ChangeArticleViewModel(IMvxNavigationService navigationService)
         {
@@ -49,18 +50,9 @@ namespace MvxR_M_S.Core.ViewModels
         }
 
         public BindingList<string> StatusMessages => _statusMessages;
-        
 
-        public async Task ChangeArticle()
+        private void ClearFields()
         {
-
-            var ae = new ArticleEndpoint(new APIHelper());
-            await ae.Change<ArticleModel>(SelectedArticle.Id, SelectedArticle);
-
-            _statusMessages.Clear();
-            StatusMessages.Add("Success!");
-
-            //clear fields
             SelectedArticle.Barcode = "";
             SelectedArticle.Barcode2 = "";
             SelectedArticle.Barcode3 = "";
@@ -72,9 +64,27 @@ namespace MvxR_M_S.Core.ViewModels
             SelectedArticle.Discount = 0;
             SelectedArticle.ExpDate = DateTime.Now;
             SelectedArticle.SupplierId = 0;
+        }
 
-            await LoadArticles(new ArticleEndpoint(new APIHelper()));
+        public async Task ChangeArticle()
+        {
+            if (SelectedArticle != null)
+            {
+                var ae = new ArticleEndpoint(new APIHelper());
+                await ae.Change<ArticleModel>(SelectedArticle.Id, SelectedArticle);
 
+                _statusMessages.Clear();
+                StatusMessages.Add("Success!");
+
+                ClearFields();
+
+                await LoadArticles(new ArticleEndpoint(new APIHelper()));
+            }
+            else
+            {
+                _statusMessages.Clear();
+                StatusMessages.Add("You can't submit change without selecting an item!");
+            }
         }
 
         public override async void ViewAppeared()
