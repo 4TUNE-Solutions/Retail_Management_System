@@ -17,14 +17,14 @@ namespace R_M_S_API.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.SetData<T>("dbo.spArticle_New", am, "Default");
+            sql.SetData<T>("dbo.spArticle_New", am, "AssisDB");
         }
 
         public List<ArticleModel> GetArticles()
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var output = sql.LoadData<ArticleModel, dynamic>("dbo.spArticle_GetAll", new { }, "Default");
+            var output = sql.LoadData<ArticleModel, dynamic>("dbo.spArticle_GetAll", new { }, "AssisDB");
 
             return output;
         }
@@ -33,7 +33,7 @@ namespace R_M_S_API.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var output = sql.LoadData<ArticleModel, dynamic>("dbo.spArticle_GetById", new { Id = articleId }, "Default").FirstOrDefault();
+            var output = sql.LoadData<ArticleModel, dynamic>("dbo.spArticle_GetById", new { Id = articleId }, "AssisDB").FirstOrDefault();
 
             return output;
         }
@@ -42,14 +42,14 @@ namespace R_M_S_API.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.DeleteData<dynamic>("dbo.spArticle_Delete", new { Id = articleId }, "Default");
+            sql.DeleteData<dynamic>("dbo.spArticle_Delete", new { Id = articleId }, "AssisDB");
         }
 
         public void ChangeArticleById<T>(T am)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.SetData<T>("dbo.spArticle_Change", am, "Default");
+            sql.SetData<T>("dbo.spArticle_Change", am, "AssisDB");
         }
     }
 }
