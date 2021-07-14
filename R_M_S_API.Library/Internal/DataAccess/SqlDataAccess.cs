@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -16,11 +17,12 @@ namespace R_M_S_API.Library.Internal.DataAccess
 
         public string GetConnectionString(string name)
         {
-            var configurationBuilder = new ConfigurationBuilder();
             var path = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
-            configurationBuilder.AddJsonFile(path, false);
+            var root = new ConfigurationBuilder()
+                .AddJsonFile(path, false)
+                .AddEnvironmentVariables()
+                .Build();
 
-            var root = configurationBuilder.Build();
             _connectionString = root.GetSection("ConnectionStrings").GetSection(name).Value;
             var appSetting = root.GetSection("ApplicationSettings");
 
