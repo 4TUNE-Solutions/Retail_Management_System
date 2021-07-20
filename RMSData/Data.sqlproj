@@ -91,6 +91,7 @@
     <Build Include="dbo\Stored Procedures\spArticle_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spArticle_Delete.sql" />
     <Build Include="dbo\Stored Procedures\spArticle_New.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Article_Change.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\R_M_S_Data.publish.xml" />
