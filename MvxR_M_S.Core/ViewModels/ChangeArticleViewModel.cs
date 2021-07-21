@@ -18,7 +18,6 @@ namespace MvxR_M_S.Core.ViewModels
         private BindingList<ArticleModel> _articles;
         private ArticleModel _selectedArticle;
         private BindingList<string> _statusMessages = new BindingList<string>();
-        private bool _articleSelected = false;
 
         public ChangeArticleViewModel(IMvxNavigationService navigationService)
         {
