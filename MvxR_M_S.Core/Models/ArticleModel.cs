@@ -4,18 +4,18 @@ namespace MvxR_M_S.Core.Models
 {
     public class ArticleModel
     {
-        public int Id { get; set; }
-        public string Barcode { get; set; }
-        public string Barcode2 { get; set; }
-        public string Barcode3 { get; set; }
-        public string Barcode4 { get; set; }
-        public string ArticleName { get; set; }
-        public int TaxId { get; set; }
-        public string Description { get; set; }
-        public string ArticleNote { get; set; }
-        public DateTime ExpDate { get; set; }
-        public int SupplierId { get; set; }
-        public bool IsService { get; set; }
-        public int Discount { get; set; }
+        public int id { get; set; }
+        public string barcode { get; set; }
+        public string barcode2 { get; set; }
+        public string barcode3 { get; set; }
+        public string barcode4 { get; set; }
+        public string article_name { get; set; }
+        public int tax_id { get; set; }
+        public string article_description { get; set; }
+        public string article_note { get; set; }
+        public DateTime exp_date { get; set; }
+        public int supplier_id { get; set; }
+        public bool is_service { get; set; }
+        public int discount { get; set; }
     }
 }

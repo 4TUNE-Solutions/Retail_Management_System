@@ -13,10 +13,10 @@ namespace MvxR_M_S.Wpf.Validators
     {
         public ArticleValidator()
         {
-            RuleFor(a => a.ArticleName)
+            RuleFor(a => a.article_name)
                 .NotEmpty().WithMessage("Article name can not is empty!");
 
-            RuleFor(a => a.TaxId)
+            RuleFor(a => a.tax_id)
                 .NotEmpty().WithMessage("Tax Id can not be empty!");
         }
     }

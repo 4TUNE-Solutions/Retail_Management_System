@@ -52,17 +52,17 @@ namespace MvxR_M_S.Core.ViewModels
 
         private void ClearFields()
         {
-            SelectedArticle.Barcode = "";
-            SelectedArticle.Barcode2 = "";
-            SelectedArticle.Barcode3 = "";
-            SelectedArticle.Barcode4 = "";
-            SelectedArticle.ArticleName = "";
-            SelectedArticle.ArticleNote = "";
-            SelectedArticle.Description = "";
-            SelectedArticle.TaxId = 0;
-            SelectedArticle.Discount = 0;
-            SelectedArticle.ExpDate = DateTime.Now;
-            SelectedArticle.SupplierId = 0;
+            SelectedArticle.barcode = "";
+            SelectedArticle.barcode2 = "";
+            SelectedArticle.barcode3 = "";
+            SelectedArticle.barcode4 = "";
+            SelectedArticle.article_name = "";
+            SelectedArticle.article_note = "";
+            SelectedArticle.article_description = "";
+            SelectedArticle.tax_id = 0;
+            SelectedArticle.discount = 0;
+            SelectedArticle.exp_date = DateTime.Now;
+            SelectedArticle.supplier_id = 0;
         }
 
         public async Task ChangeArticle()
@@ -70,7 +70,7 @@ namespace MvxR_M_S.Core.ViewModels
             if (SelectedArticle != null)
             {
                 var ae = new ArticleEndpoint(new APIHelper());
-                await ae.Change<ArticleModel>(SelectedArticle.Id, SelectedArticle);
+                await ae.Change<ArticleModel>(SelectedArticle.id, SelectedArticle);
 
                 _statusMessages.Clear();
                 StatusMessages.Add("Success!");

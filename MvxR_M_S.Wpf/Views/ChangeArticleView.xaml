@@ -41,62 +41,62 @@
                                AutoGenerateColumns="False" AllowFiltering="True"
                                SelectionUnit="Row" SelectedItem="{Binding SelectedArticle}" >
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridNumericColumn MappingName="Id"/>
-                <syncfusion:GridTextColumn MappingName="ArticleName"/>
+                <syncfusion:GridNumericColumn MappingName="id"/>
+                <syncfusion:GridTextColumn MappingName="article_name"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
 
         <!-- article attribures -->
         <StackPanel Grid.Column="3" Grid.Row="2">
             <TextBlock Text="Article Name" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.ArticleName, Mode=TwoWay}" Height="30" />
+            <TextBox Text="{Binding SelectedArticle.article_name, Mode=TwoWay}" Height="30" />
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="3">
             <TextBlock Text="Barcode" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.Barcode, Mode=TwoWay}" Margin="5 10" />
+            <TextBox Text="{Binding SelectedArticle.barcode, Mode=TwoWay}" Margin="5 10" />
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="4">
             <TextBlock Text="Barcode 2" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.Barcode2, Mode=TwoWay}" Margin="5 10" />
+            <TextBox Text="{Binding SelectedArticle.barcode2, Mode=TwoWay}" Margin="5 10" />
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="5">
             <TextBlock Text="Barcode 3" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.Barcode3, Mode=TwoWay}" Margin="5 10" />
+            <TextBox Text="{Binding SelectedArticle.barcode3, Mode=TwoWay}" Margin="5 10" />
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="6">
             <TextBlock Text="Barcode 4" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.Barcode4, Mode=TwoWay}" Margin="5 10" />
+            <TextBox Text="{Binding SelectedArticle.barcode4, Mode=TwoWay}" Margin="5 10" />
         </StackPanel>
         <StackPanel Grid.Column="3" Grid.Row="7">
             <TextBlock Text="Tax ID" HorizontalAlignment="Center"></TextBlock>
-            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.TaxId, Mode=TwoWay}" Margin="5" />
+            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.tax_id, Mode=TwoWay}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="2">
             <TextBlock Text="Description" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.Description, Mode=TwoWay}" Margin="5" />
+            <TextBox Text="{Binding SelectedArticle.article_description, Mode=TwoWay}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="3">
             <TextBlock Text="Article Note" HorizontalAlignment="Center"></TextBlock>
-            <TextBox Text="{Binding SelectedArticle.ArticleNote, Mode=TwoWay}" Margin="5" />
+            <TextBox Text="{Binding SelectedArticle.article_note, Mode=TwoWay}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="4">
             <TextBlock Text="Expiration Date" HorizontalAlignment="Center"></TextBlock>
-            <syncfusion:DateTimeEdit Text="{Binding SelectedArticle.ExpDate, Mode=TwoWay}" Margin="5" />
+            <syncfusion:DateTimeEdit Text="{Binding SelectedArticle.exp_date, Mode=TwoWay}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="5">
             <TextBlock Text="Supplier ID" HorizontalAlignment="Center"></TextBlock>
-            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.SupplierId, Mode=TwoWay}" Margin="5" />
+            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.supplier_id, Mode=TwoWay}" Margin="5" />
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="6">
             <TextBlock Text="Is Service" HorizontalAlignment="Center"></TextBlock>
-            <ComboBox Grid.Column="4" Grid.Row="6" Text="{Binding SelectedArticle.IsService, Mode=TwoWay}" Margin="5" >
+            <ComboBox Grid.Column="4" Grid.Row="6" Text="{Binding SelectedArticle.is_service, Mode=TwoWay}" Margin="5" >
                 <ComboBoxItem Content = "true"/>
                 <ComboBoxItem Content = "false"/>
             </ComboBox>
         </StackPanel>
         <StackPanel Grid.Column="4" Grid.Row="7">
             <TextBlock Text="Discount" HorizontalAlignment="Center"></TextBlock>
-            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.Discount, Mode=TwoWay}" Margin="5" />
+            <syncfusion:IntegerTextBox Text="{Binding SelectedArticle.discount, Mode=TwoWay}" Margin="5" />
         </StackPanel>
 
         <ListBox ItemsSource="{Binding StatusMessages}" Grid.Column="3" Grid.Row="8" />

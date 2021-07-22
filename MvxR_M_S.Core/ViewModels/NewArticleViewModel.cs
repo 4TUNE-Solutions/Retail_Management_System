@@ -133,18 +133,18 @@ namespace MvxR_M_S.Core.ViewModels
 
             ArticleModel article = new ArticleModel
             {
-                Barcode = Barcode,
-                Barcode2 = Barcode2,
-                Barcode3 = Barcode3,
-                Barcode4 = Barcode4,
-                ArticleName = ArticleName,
-                TaxId = TaxId,
-                Description = Description,
-                ArticleNote = ArticleNote,
-                ExpDate = ExpDate,
-                SupplierId = SupplierId,
-                IsService = IsService,
-                Discount = Discount
+                barcode = Barcode,
+                barcode2 = Barcode2,
+                barcode3 = Barcode3,
+                barcode4 = Barcode4,
+                article_name = ArticleName,
+                tax_id = TaxId,
+                article_description = Description,
+                article_note = ArticleNote,
+                exp_date = ExpDate,
+                supplier_id = SupplierId,
+                is_service = IsService,
+                discount = Discount
             };
 
             //validating
