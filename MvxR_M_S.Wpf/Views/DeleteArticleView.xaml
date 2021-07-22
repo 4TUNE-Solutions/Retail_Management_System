@@ -34,8 +34,8 @@
                                AutoGenerateColumns="False" AllowFiltering="True"
                                SelectionUnit="Row" SelectedItem="{Binding ArticleId}">
             <syncfusion:SfDataGrid.Columns>
-                <syncfusion:GridNumericColumn MappingName="Id"/>
-                <syncfusion:GridTextColumn MappingName="ArticleName"/>
+                <syncfusion:GridNumericColumn MappingName="id"/>
+                <syncfusion:GridTextColumn MappingName="article_name"/>
             </syncfusion:SfDataGrid.Columns>
         </syncfusion:SfDataGrid>
 
