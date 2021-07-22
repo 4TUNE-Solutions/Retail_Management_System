@@ -45,7 +45,7 @@ namespace R_M_S_API.Controllers
             }
             catch (SqlTypeException)
             {
-                article.ExpDate = DateTime.Now;
+                article.exp_date = DateTime.Now;
                 data.SetArticle<ArticleModel>(article);
             }
             
