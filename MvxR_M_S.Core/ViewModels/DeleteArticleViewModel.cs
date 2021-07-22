@@ -64,7 +64,7 @@ namespace MvxR_M_S.Core.ViewModels
         {
             var ae = new ArticleEndpoint(new APIHelper());
 
-            await ae.Delete(ArticleId.Id);
+            await ae.Delete(ArticleId.id);
             await LoadArticles(new ArticleEndpoint(new APIHelper()));
         }
 
