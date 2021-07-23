@@ -43,7 +43,7 @@ namespace R_M_S_API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "R_M_S_API v1"));
             }
-            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
