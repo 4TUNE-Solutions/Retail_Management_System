@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="19.2.0.48" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.2.0.48" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\API.Library\API.Library.csproj" />
+  </ItemGroup>
+
 </Project>
