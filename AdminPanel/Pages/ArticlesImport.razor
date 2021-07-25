@@ -5,7 +5,7 @@
 @using Syncfusion.Blazor.Data
 @using Syncfusion.Blazor.Grids
 
-<h3>ShowArticles</h3>
+<h3>Show Articles</h3>
 <SfGrid DataSource="@Articles" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="ArticleModel"></GridEvents>
