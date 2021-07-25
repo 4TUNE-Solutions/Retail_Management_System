@@ -1,11 +1,14 @@
 ﻿@page "/articles/show"
 @using API.Library.DataAccess
 @using API.Library.Models
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
 @using Syncfusion.Blazor.Grids
 
 <h3>ShowArticles</h3>
 <SfGrid DataSource="@Articles" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
+    <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="ArticleModel"></GridEvents>
     <GridColumns>
         <GridColumn Field=@nameof(ArticleModel.id) IsPrimaryKey="true" HeaderText="Article ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.barcode) HeaderText="Article Barcode" Width="100" TextAlign="TextAlign.Center"></GridColumn>
@@ -25,10 +28,38 @@
 @code 
 {
     public List<ArticleModel> Articles = new List<ArticleModel>();
+    
+    ArticleData data = new ArticleData();
 
     protected override void OnInitialized()
     {
-        var data = new ArticleData();
         Articles = data.GetArticles();
     }
+
+    public void ActionBeginHandler(ActionEventArgs<ArticleModel> Args)
+    {
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        {
+            if (Args.Action == "Add")
+            {
+                data.SetArticle<ArticleModel>(Args.Data);
+            }
+            else
+            {
+                data.ChangeArticleById(Args.Data);
+            }
+        }
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+        {
+            data.DeleteArticleById(Args.Data.id);
+        }
+    }
+
+    public void ActionCompleteHandler(ActionEventArgs<ArticleModel> Args)
+{
+    if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+    {
+        Articles = data.GetArticles();
+    }
+}
 }
