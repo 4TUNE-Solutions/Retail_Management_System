@@ -3,7 +3,9 @@
 @using API.Library.Models
 @using Syncfusion.Blazor
 @using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
 @using Syncfusion.Blazor.Grids
+@using System.Data.SqlClient
 
 <h3>Show Articles</h3>
 <SfGrid DataSource="@Articles" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
@@ -20,7 +22,14 @@
         <GridColumn Field=@nameof(ArticleModel.article_description) HeaderText="Article Description" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.article_note) HeaderText="Article Note" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.exp_date) DefaultValue="@(DateTime.Now)" HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center"></GridColumn>
-        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier ID" Width="100" TextAlign="TextAlign.Center">
+            <EditTemplate>
+                <SfDropDownList ID="id" Placeholder="Select a supplier" TItem="SupplierModel" TValue="SupplierModel" DataSource="@Suppliers">
+                    <DropDownListEvents TValue="SupplierModel" TItem="SupplierModel" > </DropDownListEvents>
+                    <DropDownListFieldSettings Text="supplier_id" Value="id"></DropDownListFieldSettings>
+                </SfDropDownList>
+            </EditTemplate>
+        </GridColumn>
         <GridColumn Field=@nameof(ArticleModel.is_service) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Is Service" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.discount) HeaderText="Discount" Width="100" TextAlign="TextAlign.Center"></GridColumn>
     </GridColumns>
@@ -28,30 +37,41 @@
 @code 
 {
     public List<ArticleModel> Articles = new List<ArticleModel>();
-    
+    public List<SupplierModel> Suppliers = new List<SupplierModel>();
+
     ArticleData data = new ArticleData();
+    SupplierData supplierData = new SupplierData();
 
     protected override void OnInitialized()
     {
         Articles = data.GetArticles();
+        Suppliers = supplierData.GetSuppliers(); 
     }
 
     public void ActionBeginHandler(ActionEventArgs<ArticleModel> Args)
     {
-        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        try
         {
-            if (Args.Action == "Add")
+            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
             {
-                data.SetArticle<ArticleModel>(Args.Data);
+                if (Args.Action == "Add")
+                {
+                    data.SetArticle<ArticleModel>(Args.Data);
+                }
+                else
+                {
+                    data.ChangeArticleById(Args.Data);
+                }
             }
-            else
+            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
             {
-                data.ChangeArticleById(Args.Data);
+                data.DeleteArticleById(Args.Data.id);
             }
         }
-        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+        catch(SqlException ex)
         {
-            data.DeleteArticleById(Args.Data.id);
+            Console.WriteLine(ex.ToString());
+            Console.ReadLine();
         }
     }
 
