@@ -19,7 +19,7 @@
         <GridColumn Field=@nameof(ArticleModel.tax_id) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Tax ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.article_description) HeaderText="Article Description" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.article_note) HeaderText="Article Note" Width="100" TextAlign="TextAlign.Center"></GridColumn>
-        <GridColumn Field=@nameof(ArticleModel.exp_date) HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(ArticleModel.exp_date) DefaultValue="@(DateTime.Now)" HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.is_service) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Is Service" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.discount) HeaderText="Discount" Width="100" TextAlign="TextAlign.Center"></GridColumn>
