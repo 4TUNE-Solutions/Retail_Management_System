@@ -50,8 +50,6 @@
 
     public void ActionBeginHandler(ActionEventArgs<ArticleModel> Args)
     {
-        try
-        {
             if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
             {
                 if (Args.Action == "Add")
@@ -68,12 +66,6 @@
                 data.DeleteArticleById(Args.Data.id);
             }
         }
-        catch(SqlException ex)
-        {
-            Console.WriteLine(ex.ToString());
-            Console.ReadLine();
-        }
-    }
 
     public void ActionCompleteHandler(ActionEventArgs<ArticleModel> Args)
 {
