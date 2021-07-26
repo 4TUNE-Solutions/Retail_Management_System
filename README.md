@@ -1,3 +1,5 @@
+# This repo is hosted and operating on Azure DevOps as of now.
+
 # Retail_Management_System
 
 For info on how to start project -> [START.md](https://github.com/4TUNE-Solutions/Retail_Management_System/blob/main/START.md)
