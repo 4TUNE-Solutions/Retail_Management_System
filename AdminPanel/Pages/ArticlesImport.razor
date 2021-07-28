@@ -8,8 +8,9 @@
 @using System.Data.SqlClient
 
 <h3>Show Articles</h3>
-<SfGrid DataSource="@Articles" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
-    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" ></GridEditSettings>
+<SfGrid DataSource="@Articles" AllowFiltering="true" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="ArticleModel"></GridEvents>
     <GridColumns>
         <GridColumn Field=@nameof(ArticleModel.id) IsPrimaryKey="true" AllowEditing="false" AllowAdding = "false" Visible = "false" ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Article ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
@@ -36,6 +37,7 @@
 </SfGrid>
 @code 
 {
+
     public List<ArticleModel> Articles = new List<ArticleModel>();
     public List<SupplierModel> Suppliers = new List<SupplierModel>();
 
@@ -68,10 +70,11 @@
         }
 
     public void ActionCompleteHandler(ActionEventArgs<ArticleModel> Args)
-{
+    {
     if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
     {
         Articles = data.GetArticles();
     }
-}
+    }
+
 }
