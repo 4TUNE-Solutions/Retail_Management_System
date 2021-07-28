@@ -12,7 +12,7 @@
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" ></GridEditSettings>
     <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="ArticleModel"></GridEvents>
     <GridColumns>
-        <GridColumn Field=@nameof(ArticleModel.id) IsPrimaryKey="true" AllowEditing="false" AllowAdding = "false" ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Article ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(ArticleModel.id) IsPrimaryKey="true" AllowEditing="false" AllowAdding = "false" Visible = "false" ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Article ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.barcode)  HeaderText="Article Barcode" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.barcode2) HeaderText="Barcode 2" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.barcode3) HeaderText="Barcode 3" Width="100" TextAlign="TextAlign.Center" ></GridColumn>
@@ -22,7 +22,7 @@
         <GridColumn Field=@nameof(ArticleModel.article_description) HeaderText="Article Description" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.article_note) HeaderText="Article Note" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.exp_date) DefaultValue="@(DateTime.Now)" HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center"></GridColumn>
-        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier ID" Width="100" TextAlign="TextAlign.Center">
+        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier" Width="100" TextAlign="TextAlign.Center">
             <EditTemplate>
                 <SfDropDownList ID="id" Placeholder="Select a supplier" TItem="SupplierModel" TValue="SupplierModel" DataSource="@Suppliers">
                     <DropDownListEvents TValue="SupplierModel" TItem="SupplierModel" > </DropDownListEvents>
