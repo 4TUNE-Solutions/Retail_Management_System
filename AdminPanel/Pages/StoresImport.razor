@@ -10,7 +10,7 @@
     <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="StoreModel"></GridEvents>>
     <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
     <GridColumns>
-        <GridColumn Field=@nameof(StoreModel.id) IsPrimaryKey="true" HeaderText="Store ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(StoreModel.id) IsPrimaryKey="true" Visible = "false" HeaderText="Store ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(StoreModel.name) HeaderText="Name" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(StoreModel.address) HeaderText="Address" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(StoreModel.city) HeaderText="City" Width="100" TextAlign="TextAlign.Center"></GridColumn>
