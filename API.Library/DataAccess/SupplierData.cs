@@ -30,7 +30,7 @@ namespace API.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var output = sql.LoadData<SupplierModel, dynamic>("dbo.spArticle_GetById", new { Id = SupplierID }, "AssisDB").FirstOrDefault();
+            var output = sql.LoadData<SupplierModel, dynamic>("dbo.spSupplier_GetById", new { Id = SupplierID }, "AssisDB").FirstOrDefault();
 
             return output;
         }
