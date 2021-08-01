@@ -6,7 +6,7 @@
 @functions{
     public async Task OnPost()
     {
-        await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties { RedirectUri = "/" });
+        await HttpContext.SignOutAsync("Auth0", new AuthenticationProperties { RedirectUri = "https://assis.azurewebsites.net/" });
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 }
