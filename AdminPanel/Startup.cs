@@ -48,6 +48,11 @@ namespace AdminPanel
 
                 options.ResponseType = OpenIdConnectResponseType.Code;
 
+                options.TokenValidationParameters = new()
+                {
+                    NameClaimType = "name",
+                };
+
                 options.Scope.Clear();
                 options.Scope.Add("openid");
                 options.Scope.Add("profile");
