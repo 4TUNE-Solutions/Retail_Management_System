@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace API.Library.DataAccess
 {
-    class InventoryData
+    public class InventoryData
     {
         public void SetInventory<T>(T am)
         {
