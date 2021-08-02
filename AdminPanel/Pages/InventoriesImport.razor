@@ -1,0 +1,65 @@
+﻿@page "/inventories/show"
+@using API.Library.DataAccess
+@using API.Library.Models
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+
+<h3>Show Inventories</h3>
+<SfGrid DataSource="@Inventories" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
+    <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="InventoryModel"></GridEvents>>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(InventoryModel.id) IsPrimaryKey="true" Visible = "false" HeaderText="Store ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.name) HeaderText="Name" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.address) HeaderText="Address" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.city) HeaderText="City" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.postal_code) HeaderText="Postal Code" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.email) HeaderText="E-mail" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.mobile) HeaderText="Mobile" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.mobile2) HeaderText="Mobile 2" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.mobile3) HeaderText="Mobile 3" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(InventoryModel.operating) HeaderText="Operating" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    </GridColumns>
+</SfGrid>
+
+@code 
+{
+       public List<InventoryModel> Inventories = new List<InventoryModel>();
+     
+    InventoryData data = new InventoryData();
+
+    protected override void OnInitialized()
+    {
+        Inventories = data.GetInventories();
+    }
+
+    public void ActionBeginHandler(ActionEventArgs<InventoryModel> Args)
+    {
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        {
+            if (Args.Action == "Add")
+            {
+                data.SetInventory<InventoryModel>(Args.Data);
+
+            }
+            else
+            {
+                data.ChangeInventoryById(Args.Data);
+            }
+        }
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+        {
+            data.DeleteInventoryById(Args.Data.id);
+        }
+    }
+
+    public void ActionCompleteHandler(ActionEventArgs<InventoryModel> Args)
+    {
+        if(Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        {
+            Inventories = data.GetInventories();
+        }
+    }
+}
+
