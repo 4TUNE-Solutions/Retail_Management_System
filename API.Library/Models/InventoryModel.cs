@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Library.Models
 {
-    class InventoryModel
+    public class InventoryModel
     {
         public int id { get; set; }
         public string name { get; set; }
