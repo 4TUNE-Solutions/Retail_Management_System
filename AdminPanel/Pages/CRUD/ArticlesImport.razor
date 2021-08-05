@@ -23,7 +23,7 @@
         <GridColumn Field=@nameof(ArticleModel.article_description) HeaderText="Article Description" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.article_note) HeaderText="Article Note" Width="100" TextAlign="TextAlign.Center"></GridColumn>
         <GridColumn Field=@nameof(ArticleModel.exp_date) DefaultValue="@(DateTime.Now)" HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center"></GridColumn>
-        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier" Width="100" TextAlign="TextAlign.Center">
+        <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})">
             <EditTemplate>
                 <SfDropDownList ID="id" Placeholder="Select a supplier" TItem="SupplierModel" TValue="SupplierModel" DataSource="@Suppliers">
                     <DropDownListEvents TValue="SupplierModel" TItem="SupplierModel" > </DropDownListEvents>

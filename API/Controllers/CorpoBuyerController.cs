@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CorpoBuyerController:ControllerBase
     {
         // GET: api/<CorpoBuyerController>
@@ -19,7 +21,7 @@ namespace API.Controllers
             return data.GetCorpoBuyers();
         }
 
-        // GET api/<SupplierController>/5
+        // GET api/<CorpoBuyerController>/5
         [HttpGet("{id}")]
         public CorpoBuyerModel Get(int id)
         {
@@ -28,24 +30,24 @@ namespace API.Controllers
             return data.GetCorpoBuyerById(id);
         }
 
-        // POST api/<SupplierController>
+        // POST api/<CorpoBuyerController>
         [HttpPost]
-        public void Post(CorpoBuyerModel supplier)
+        public void Post(CorpoBuyerModel CorpoBuyer)
         {
             var data = new CorpoBuyerData();
-            data.SetCorpoBuyer<CorpoBuyerModel>(supplier);
+            data.SetCorpoBuyer<CorpoBuyerModel>(CorpoBuyer);
         }
 
-        // PUT api/<SupplierController>/5
+        // PUT api/<CorpoBuyerController>/5
         [HttpPut("{id}")]
-        public void Put(int id, CorpoBuyerModel am)
+        public void Put(int id, CorpoBuyerModel cbm)
         {
             var data = new CorpoBuyerData();
 
-            data.ChangeCorpoBuyerById<CorpoBuyerModel>(am);
+            data.ChangeCorpoBuyerById<CorpoBuyerModel>(cbm);
         }
 
-        // DELETE api/<SupplierController>/5
+        // DELETE api/<CorpoBuyerController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
