@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CorpoBuyerController:ControllerBase
     {
         // GET: api/<CorpoBuyerController>
