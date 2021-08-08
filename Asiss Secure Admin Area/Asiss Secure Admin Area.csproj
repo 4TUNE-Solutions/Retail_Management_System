@@ -12,6 +12,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.8" />
+    <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="19.2.0.51" />
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="19.2.0.51" />
+    <PackageReference Include="Syncfusion.Licensing" Version="19.2.0.51" />
   </ItemGroup>
 
   <ItemGroup>
