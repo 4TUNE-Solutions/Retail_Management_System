@@ -1,5 +1,5 @@
-using Asiss_Secure_Admin_Area.Areas.Identity;
-using Asiss_Secure_Admin_Area.Data;
+using AdminPanel.Areas.Identity;
+using AdminPanel.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Asiss_Secure_Admin_Area
+namespace AdminPanel
 {
     public class Startup
     {

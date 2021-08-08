@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace Asiss_Secure_Admin_Area.Data.Migrations
+namespace AdminPanel.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

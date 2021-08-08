@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Asiss_Secure_Admin_Area.Data
+namespace AdminPanel.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Asiss Secure Admin Area": {
+    "AdminPanel": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

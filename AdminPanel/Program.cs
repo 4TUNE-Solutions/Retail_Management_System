@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Asiss_Secure_Admin_Area
+namespace AdminPanel
 {
     public class Program
     {
