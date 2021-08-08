@@ -1,0 +1,79 @@
+﻿@page "/articles/show"
+@using API.Library.DataAccess
+@using API.Library.Models
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Grids
+@using System.Data.SqlClient
+
+<h3>Show Articles</h3>
+<SfGrid DataSource="@Articles" AllowFiltering="true" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true" Mode="@EditMode.Normal"></GridEditSettings>
+    <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="ArticleModel"></GridEvents>
+    <GridColumns>
+    <GridColumn Field=@nameof(ArticleModel.id) IsPrimaryKey="true" AllowEditing="false" AllowAdding = "false" Visible = "false" ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Article ID" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.barcode)  HeaderText="Barcode" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.barcode2) HeaderText="Barcode 2" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.barcode3) HeaderText="Barcode 3" Width="100" TextAlign="TextAlign.Center" ></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.barcode4) HeaderText="Barcode 4" Width="100" TextAlign="TextAlign.Center" ></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.article_name) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Article Name" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.tax_id) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Tax ID" Width="100" TextAlign="TextAlign.Center" EditType="EditType.NumericEdit"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.article_description) HeaderText="Article Description" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.article_note) HeaderText="Article Note" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.exp_date) DefaultValue="@(DateTime.Now)" HeaderText="Expiration Date" Type="ColumnType.DateTime" Width="100" TextAlign="TextAlign.Center" EditType="EditType.DatePickerEdit"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.supplier_id) HeaderText="Supplier" Width="100" TextAlign="TextAlign.Center" EditType="EditType.DropDownEdit">
+        <EditTemplate>
+            <SfDropDownList ID="supplier_id" Placeholder="Select a supplier" TItem="SupplierModel" TValue="int" DataSource="@Suppliers" @bind-Value="@((context as ArticleModel).supplier_id)">
+                <DropDownListFieldSettings Text="name" Value="id"></DropDownListFieldSettings>
+            </SfDropDownList>
+        </EditTemplate>
+    </GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.is_service) ValidationRules="@(new ValidationRules{ Required=true})" HeaderText="Is Service" Width="100" TextAlign="TextAlign.Center" EditType="EditType.BooleanEdit"></GridColumn>
+    <GridColumn Field=@nameof(ArticleModel.discount) HeaderText="Discount" Width="100" TextAlign="TextAlign.Center" EditType="EditType.NumericEdit"></GridColumn>
+    </GridColumns>
+</SfGrid>
+@code 
+{
+
+    public List<ArticleModel> Articles = new List<ArticleModel>();
+    public List<SupplierModel> Suppliers = new List<SupplierModel>();
+
+    ArticleData data = new ArticleData();
+    SupplierData supplierData = new SupplierData();
+
+    protected override void OnInitialized()
+    {
+        Articles = data.GetArticles();
+        Suppliers = supplierData.GetSuppliers(); 
+    }
+
+    public void ActionBeginHandler(ActionEventArgs<ArticleModel> Args)
+    {
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+            {
+                if (Args.Action == "Add")
+                {
+                    data.SetArticle<ArticleModel>(Args.Data);
+                }
+                else
+                {
+                    data.ChangeArticleById(Args.Data);
+                }
+            }
+            if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+            {
+                data.DeleteArticleById(Args.Data.id);
+            }
+        }
+
+    public void ActionCompleteHandler(ActionEventArgs<ArticleModel> Args)
+    {
+    if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+    {
+        Articles = data.GetArticles();
+    }
+    }
+
+}

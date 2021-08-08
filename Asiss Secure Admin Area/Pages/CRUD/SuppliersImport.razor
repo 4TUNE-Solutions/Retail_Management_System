@@ -1,0 +1,69 @@
+﻿@page "/Suppliers/show"
+@using API.Library.DataAccess
+@using API.Library.Models
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Grids
+
+<h3>Show Suppliers</h3>
+<SfGrid DataSource="@Suppliers" AllowSorting="true" AllowPaging="true" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })" Height ="315">
+    <GridEvents OnActionBegin="ActionBeginHandler" OnActionComplete="ActionCompleteHandler" TValue="SupplierModel"></GridEvents>>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(SupplierModel.id) IsPrimaryKey="true" Visible = "false" HeaderText="Store ID" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.name) HeaderText="Name" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.address) HeaderText="Address" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.city) HeaderText="City" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.postal_code) HeaderText="Postal Code" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.email) HeaderText="E-mail" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.telephone) HeaderText="Telephone" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.mobile) HeaderText="Mobile" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.fax) HeaderText="Fax" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.website) HeaderText="Website" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.contact_person) HeaderText="Contact person" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.bank_account_number1) HeaderText="Bank account number 1" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.bank_account_number2) HeaderText="Bank account number 2" Width="100" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.TIN) HeaderText="TIN" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.UCID) HeaderText="UCID" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})"></GridColumn>
+        <GridColumn Field=@nameof(SupplierModel.taxpayer) HeaderText="Taxpayer" Width="100" TextAlign="TextAlign.Center" ValidationRules="@(new ValidationRules{ Required=true})"></GridColumn>
+    </GridColumns>
+</SfGrid>
+@code 
+{
+    public List<SupplierModel> Suppliers = new List<SupplierModel>();
+     
+    SupplierData data = new SupplierData();
+
+    protected override void OnInitialized()
+    {
+        Suppliers = data.GetSuppliers();
+    }
+
+    public void ActionBeginHandler(ActionEventArgs<SupplierModel> Args)
+    {
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        {
+            if (Args.Action == "Add")
+            {
+                data.SetSupplier<SupplierModel>(Args.Data);
+
+            }
+            else
+            {
+                data.ChangeSupplierById(Args.Data);
+            }
+        }
+        if (Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Delete))
+        {
+            data.DeleteSupplierById(Args.Data.id);
+        }
+    }
+
+    public void ActionCompleteHandler(ActionEventArgs<SupplierModel> Args)
+    {
+        if(Args.RequestType.Equals(Syncfusion.Blazor.Grids.Action.Save))
+        {
+            Suppliers = data.GetSuppliers();
+        }
+    }
+}
