@@ -19,7 +19,7 @@ namespace LandingPage.Pages
 
         public IActionResult OnGet()
         {
-            string url = "https://asiss.azurewebsites.net";
+            string url = "https://asiss.azurefd.net";
 
             return Redirect(url);
         }
