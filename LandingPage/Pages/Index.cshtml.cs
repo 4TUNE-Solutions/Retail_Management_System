@@ -17,9 +17,11 @@ namespace LandingPage.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            string url = "https://asiss.azurewebsites.net";
 
+            return Redirect(url);
         }
     }
 }
