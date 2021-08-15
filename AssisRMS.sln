@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31512.422
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{2F158AAC-C4A4-42BB-8190-54392DE40167}"
 EndProject
@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvxR_M_S.Wpf", "MvxR_M_S.Wp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIS", "APIS", "{C6D55B33-DACE-4AB1-896E-DABA9E75F3A4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{92B5F426-0F34-423E-B799-33B0DE5B713F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Store Interface", "Store Interface", "{92B5F426-0F34-423E-B799-33B0DE5B713F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LandingPage", "LandingPage\LandingPage.csproj", "{58F484FD-8D69-4734-B57B-B39AFD037A16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPanel", "AdminPanel\AdminPanel.csproj", "{F328AB45-39EA-4868-AC15-19D8740DA0DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{CA4F3347-ABBE-4021-BC43-2695547F2D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA4F3347-ABBE-4021-BC43-2695547F2D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA4F3347-ABBE-4021-BC43-2695547F2D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F484FD-8D69-4734-B57B-B39AFD037A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F484FD-8D69-4734-B57B-B39AFD037A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F484FD-8D69-4734-B57B-B39AFD037A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F484FD-8D69-4734-B57B-B39AFD037A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F328AB45-39EA-4868-AC15-19D8740DA0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F328AB45-39EA-4868-AC15-19D8740DA0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F328AB45-39EA-4868-AC15-19D8740DA0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F328AB45-39EA-4868-AC15-19D8740DA0DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
